@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minepoof</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #00FF00;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .header {
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .section {
+            border: 2px solid #00FF00;
+            padding: 20px;
+            margin: 10px;
+            width: 200px;
+            word-wrap: break-word;
+        }
+        .section img {
+            width: 50px;
+            height: 50px;
+        }
+        .matrix-box {
+            border: 2px solid #00FF00;
+            padding: 20px;
+            margin: 10px;
+            width: 90%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            background-color: black;
+            margin-top: 20px;
+        }
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            color: #00FF00;
+            font-size: 12px;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+        .matrix-rain span {
+            display: inline-block;
+            position: absolute;
+            animation: rain 3s linear infinite;
+        }
+        @keyframes rain {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        a {
+            color: #00FF00;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>minepoof</h1>
+        <p>Cybersecurity Enthusiast and Gray Hat Hacker</p>
+    </div>
+    <div class="content">
+        <div class="section">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg" alt="Bitcoin Logo">
+            <p>Bitcoin Address:</p>
+            <p>38VtEkg6hfLNqJeASwTj6HbqqkBdMDMkaj</p>
+        </div>
+        <div class="section">
+            <img src="https://cryptologos.cc/logos/monero-xmr-logo.png" alt="Monero Logo">
+            <p>Monero Address:</p>
+            <p>49XsXgNubQc7b9XzwwqCL7bvbNTiEjYC36dLfQjRsvx9WPgKUDpo1Q5GYArCm5zJYkcvcDWXqvRemJVhSYHQpoeYAVBFwQw</p>
+        </div>
+        <div class="section">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg" alt="Ethereum Logo">
+            <p>Ethereum Address:</p>
+            <p>0x6376D3de5b104F350f642847f0206a60E4c60017</p>
+        </div>
+        <div class="section">
+            <img src="https://cryptologos.cc/logos/litecoin-ltc-logo.png" alt="Litecoin Logo">
+            <p>Litecoin Address:</p>
+            <p>MF58xAMSn5ghqNcYxH9k7YVN92MvYQwFVV</p>
+        </div>
+        <div class="matrix-box">
+            <div class="matrix-rain" id="matrix-rain"></div>
+        </div>
+        <div class="section">
+            <p>Contact Information:</p>
+            <p>Email: minepoof@startmail.com</p>
+            <p>Session ID: 05fd0c92ecf1c5f74a42feb4587cfea07e7a93bb9478665590f841898b05abb453</p>
+        </div>
+        <div class="section">
+            <img src="https://seeklogo.com/images/T/twitter-new-logo-8A0C4E0C58-seeklogo.com.png?v=638258088440000000" alt="X.com Logo">
+            <p><a href="https://twitter.com/d4rkness_4ever" target="_blank">https://twitter.com/d4rkness_4ever</a></p>
+        </div>
+        <div class="section">
+            <p>Useful Links:</p>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="https://onniforums.com/">Onniforums</a></li>
+                <li><a href="/blog">My personal blog</a></li>
+                <li><a href="/video">Install Arch Linux, become a chad.</a></li>
+                <li><a href="https://grapheneos.org/">Graphene OS</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 minepoof</p>
+    </div>
+
+    <script>
+        const kanjiCharset = ['愛', '安', '暗', '以', '意', '育', '一', '員', '院', '飲', '右', '運', '雲', '遠', '園', '横', '屋', '温', '化', '何', '火', '花', '科', '夏', '家', '荷', '画', '回', '会', '海', '界', '開', '外', '学', '楽', '間', '関', '感', '漢', '館', '岸', '起', '記', '帰', '気', '急', '級', '宮', '休', '牛', '魚', '京', '強', '橋', '教', '境', '敬', '計', '結', '犬', '見', '元', '原', '言', '古', '工', '行', '高', '合', '国', '黒', '今', '困', '祭', '作', '山', '三', '四', '士', '市', '思', '紙', '示', '字', '寺', '持', '時', '自', '事', '持', '寺', '室', '家', '寛', '店', '天', '夫', '帰', '家', '水', '火', '木', '金', '土', '日', '月'];
+        const matrixContainer = document.getElementById('matrix-rain');
+        const columns = 50;
+        const rows = 30;
+
+        function createMatrixRain() {
+            for (let i = 0; i < columns; i++) {
+                for (let j = 0; j < rows; j++) {
+                    const character = document.createElement('span');
+                    character.textContent = kanjiCharset[Math.floor(Math.random() * kanjiCharset.length)];
+                    character.style.left = `${i * 2}%`;
+                    character.style.top = `${j * 3}%`;
+                    character.style.animationDuration = `${Math.random() * 2 + 2}s`;
+                    character.style.animationDelay = `${Math.random() * 5}s`;
+                    matrixContainer.appendChild(character);
+                }
+            }
+        }
+
+        createMatrixRain();
+    </script>
+</body>
+</html>
