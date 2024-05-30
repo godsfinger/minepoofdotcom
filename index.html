@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>minepoof</title>
+    <link rel="icon" href="favicon/minepoof.ico" type="image/x-icon">
+    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon/android-chrome-512x512.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
     <style>
         body {
             background-color: #000;
@@ -12,6 +20,7 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            cursor: url('default.cur'), auto;
         }
         .header {
             padding: 20px;
@@ -44,6 +53,7 @@
             position: relative;
             background-color: black;
             margin-top: 20px;
+            cursor: pointer; /* Make the entire div clickable */
         }
         .matrix-rain {
             position: absolute;
@@ -52,7 +62,6 @@
             right: 0;
             bottom: 0;
             overflow: hidden;
-            color: #00FF00;
             font-size: 12px;
             line-height: 1.2;
             white-space: nowrap;
@@ -60,6 +69,7 @@
         .matrix-rain span {
             display: inline-block;
             position: absolute;
+            color: #008000; /* Dark hacker green color */
             animation: rain 3s linear infinite;
         }
         @keyframes rain {
@@ -72,6 +82,7 @@
         }
         a:hover {
             text-decoration: underline;
+            cursor: url('openhand.cur'), auto;
         }
     </style>
 </head>
@@ -101,7 +112,7 @@
             <p>Litecoin Address:</p>
             <p>MF58xAMSn5ghqNcYxH9k7YVN92MvYQwFVV</p>
         </div>
-        <div class="matrix-box">
+        <div class="matrix-box" onclick="window.location.href='coderain.html';">
             <div class="matrix-rain" id="matrix-rain"></div>
         </div>
         <div class="section">
@@ -121,6 +132,7 @@
                 <li><a href="/blog">My personal blog</a></li>
                 <li><a href="/video">Install Arch Linux, become a chad.</a></li>
                 <li><a href="https://grapheneos.org/">Graphene OS</a></li>
+                <li><a href="/letter">A letter to the FBI</a></li>
             </ul>
         </div>
     </div>
@@ -129,20 +141,21 @@
     </div>
 
     <script>
-        const kanjiCharset = ['愛', '安', '暗', '以', '意', '育', '一', '員', '院', '飲', '右', '運', '雲', '遠', '園', '横', '屋', '温', '化', '何', '火', '花', '科', '夏', '家', '荷', '画', '回', '会', '海', '界', '開', '外', '学', '楽', '間', '関', '感', '漢', '館', '岸', '起', '記', '帰', '気', '急', '級', '宮', '休', '牛', '魚', '京', '強', '橋', '教', '境', '敬', '計', '結', '犬', '見', '元', '原', '言', '古', '工', '行', '高', '合', '国', '黒', '今', '困', '祭', '作', '山', '三', '四', '士', '市', '思', '紙', '示', '字', '寺', '持', '時', '自', '事', '持', '寺', '室', '家', '寛', '店', '天', '夫', '帰', '家', '水', '火', '木', '金', '土', '日', '月'];
+        const charset = ['0', '1'];
         const matrixContainer = document.getElementById('matrix-rain');
         const columns = 50;
-        const rows = 30;
+        const rows = 100;
 
         function createMatrixRain() {
             for (let i = 0; i < columns; i++) {
                 for (let j = 0; j < rows; j++) {
                     const character = document.createElement('span');
-                    character.textContent = kanjiCharset[Math.floor(Math.random() * kanjiCharset.length)];
+                    character.textContent = charset[Math.floor(Math.random() * charset.length)];
                     character.style.left = `${i * 2}%`;
                     character.style.top = `${j * 3}%`;
                     character.style.animationDuration = `${Math.random() * 2 + 2}s`;
                     character.style.animationDelay = `${Math.random() * 5}s`;
+                    character.style.color = '#008000'; // Dark hacker green color
                     matrixContainer.appendChild(character);
                 }
             }

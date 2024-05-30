@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arch Linux Install</title>
+    <title>Arch Linux Install (VM)</title>
     <link rel="icon" href="favicon/minepoof.ico" type="image/x-icon">
     <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -113,9 +113,9 @@
     </style>
 </head>
 <body>
-    <div id="header">Arch Linux Install Guide</div>
+    <div id="header">Arch Linux VM tutorial</div>
     <div id="videoContainer">
-        <video id="videoPlayer" src="archlinuxinstall.mp4" controlsList="nodownload"></video>
+        <video id="videoPlayer" src="archlinuxvirtualbox.mp4" controlsList="nodownload"></video>
         <div id="controls">
             <button id="playPauseBtn">Play</button>
             <button id="fullscreenBtn">Fullscreen</button>
@@ -123,12 +123,13 @@
                 <div id="progressBar"></div>
             </div>
         </div>
-        <div id="leftArrow" class="arrow" onclick="window.location.href='archinstallvm.html'">&#9664;</div>
-        <div id="rightArrow" class="arrow" onclick="window.location.href='archdesktop.html'">&#9654;</div>
+        <div id="leftArrow" class="arrow" onclick="window.location.href='video.html'">&#9664;</div>
+        <div id="rightArrow" class="arrow" onclick="window.location.href='video.html'">&#9654;</div>
     </div>
     <button id="downloadBtn" onclick="window.location.href='https://minepoof.com/archlinux-2024.05.01-x86_64.iso'">Download Arch Linux ISO</button>
+    <button id="downloadBtn" onclick="window.location.href='https://www.virtualbox.org/'">Download Virtualbox</button>
     <button id="goBackBtn" onclick="window.location.href='https://minepoof.com'">Go Back</button>
-
+    <p id="footer">minepoof 2024</p>
     <script>
         const videoPlayer = document.getElementById('videoPlayer');
         const playPauseBtn = document.getElementById('playPauseBtn');

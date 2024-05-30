@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Rain</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+            color: #0F0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #matrix-rain {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #matrix-rain span {
+            position: absolute;
+            color: #0F0;
+            font-size: 20px;
+            font-weight: bold;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <div id="matrix-rain"></div>
+
+    <script>
+        const charset = ['0', '1'];
+        const matrixContainer = document.getElementById('matrix-rain');
+        const columns = Math.floor(window.innerWidth / 20);
+        const rows = Math.floor(window.innerHeight / 20);
+
+        function createMatrixRain() {
+            for (let i = 0; i < columns; i++) {
+                for (let j = 0; j < rows; j++) {
+                    const character = document.createElement('span');
+                    character.textContent = charset[Math.floor(Math.random() * charset.length)];
+                    character.style.left = `${i * 20}px`;
+                    character.style.top = `${j * 20}px`;
+                    character.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                    character.style.animationDelay = `${Math.random() * 5}s`;
+                    matrixContainer.appendChild(character);
+                }
+            }
+        }
+
+        createMatrixRain();
+    </script>
+</body>
+</html>
